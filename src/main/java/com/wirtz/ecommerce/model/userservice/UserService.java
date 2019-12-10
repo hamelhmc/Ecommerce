@@ -1,5 +1,7 @@
 package com.wirtz.ecommerce.model.userservice;
 
+import com.wirtz.ecommerce.model.product.Product;
+import com.wirtz.ecommerce.model.userprofile.UserProfile;
 import com.wirtz.ecommerce.modelutil.exceptions.DuplicateInstanceException;
 import com.wirtz.ecommerce.modelutil.exceptions.InstanceNotFoundException;
 import com.wirtz.ecommerce.modelutil.exceptions.PasswordMissmatchException;
@@ -19,7 +21,7 @@ public interface UserService {
 	throws InstanceNotFoundException;
 
 
-	
+	public UserProfile findUser(Long userProfileId)throws InstanceNotFoundException;
 	
 
 }

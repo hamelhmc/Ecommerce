@@ -98,6 +98,15 @@ public class UserServiceImpl implements UserService {
 
 
 
+	@Override
+	public UserProfile findUser(Long userProfileId) throws InstanceNotFoundException {
+		UserProfile userProfile;
+		userProfile = userProfileDao.find(userProfileId);
+		return userProfile;
+	}
+
+
+
 	
 
 

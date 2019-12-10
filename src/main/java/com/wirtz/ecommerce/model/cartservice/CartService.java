@@ -1,5 +1,8 @@
 package com.wirtz.ecommerce.model.cartservice;
 
-public interface CartService {
+import com.wirtz.ecommerce.modelutil.exceptions.InstanceNotFoundException;
 
+public interface CartService {
+	
+	public void  addCartline(Long productId)throws InstanceNotFoundException;
 }

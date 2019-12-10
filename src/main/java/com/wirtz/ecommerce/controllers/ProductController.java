@@ -1,5 +1,7 @@
 package com.wirtz.ecommerce.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.wirtz.ecommerce.model.product.Product;
 import com.wirtz.ecommerce.model.productservice.ProductBlock;
 import com.wirtz.ecommerce.model.productservice.ProductService;
+import com.wirtz.ecommerce.model.util.Global;
 import com.wirtz.ecommerce.modelutil.exceptions.InstanceNotFoundException;
 
 @Controller
@@ -59,5 +62,4 @@ public class ProductController {
 		}
 		return DETAILS_RESULT_VIEW;
 	}
-
 }
