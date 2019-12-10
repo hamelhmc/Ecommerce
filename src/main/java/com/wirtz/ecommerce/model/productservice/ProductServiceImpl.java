@@ -23,8 +23,6 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.find(productId);
 	}
 
-
-	
 	@Transactional(readOnly = true)
 	public ProductBlock findProductsBlockByKeyword(String keyword, int startIndex, int count) {
 
