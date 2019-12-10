@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.wirtz.ecommerce.model.util.Global" %>
+<%@ page import="com.wirtz.ecommerce.model.util.Global"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -9,8 +9,9 @@
 <%@ include file="layout/header.jsp"%>
 <h2>Products search</h2>
 
-<c:set var="pageCount" value="${Global.PAGE_SIZE }"/>
-<spring:url value="/products/search/0/${pageCount}" var="productsSearchUrl"></spring:url>
+<c:set var="pageCount" value="${Global.PAGE_SIZE }" />
+<spring:url value="/products/search/0/${pageCount}"
+	var="productsSearchUrl"></spring:url>
 
 <!-- Actual search box -->
 <form action="${productsSearchUrl}" method="GET">
@@ -25,7 +26,7 @@
 <h3>Search results</h3>
 <c:if test="${not empty block.items}">
 
-<%@ include file="util/pageBlock.jsp"%>
+	<%@ include file="util/pageBlock.jsp"%>
 
 	<div class="table-responsive">
 		<table class="table table-hover">
@@ -34,7 +35,7 @@
 					<th>Title</th>
 					<th>Price</th>
 					<c:if test="${sessionScope.userProfileId != null}">
-					<th>Add to cart...</th>
+						<th>Add to cart...</th>
 					</c:if>
 
 				</tr>

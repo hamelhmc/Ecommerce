@@ -31,12 +31,12 @@
 	<div class="container">
 		<header>
 			<h1>E-commerce</h1>
-			
+
 
 
 			<c:set value="${pageContext.request.servletPath}" var="currentPage" />
 			<div>
-<!-- 			Show in all pages but in login -->
+				<!-- 			Show in all pages but in login -->
 				<c:if test="${not fn:endsWith(currentPage, 'Login.jsp')}">
 					<c:choose>
 						<c:when test="${sessionScope.userProfileId != null}">
