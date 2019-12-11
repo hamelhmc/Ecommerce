@@ -21,6 +21,7 @@ import com.wirtz.ecommerce.modelutil.exceptions.InstanceNotFoundException;
 public class CartController {
 
 	private final static String SEARCH_RESULT_VIEW = "ProductsSearchResult";
+	private final static String DETAILS_RESULT_VIEW = "CartDetails";
 
 	private final static String PRODUCTS_ATT = "block";
 
@@ -33,9 +34,18 @@ public class CartController {
 	@Autowired
 	UserService userService;
 
+	@GetMapping("/cart")
+	public String getForm(HttpSession session, Model model) throws InstanceNotFoundException {
+		long userID = (long) session.getAttribute(Global.USER_PROFILE_ID);
+		UserProfile userProfile;
+
+		model.addAttribute(PRODUCTS_ATT, userService.findUser(userID).getCartline());
+
+		return DETAILS_RESULT_VIEW;
+	}
+
 	@GetMapping("/cart/{id}")
-	public String addCartLine(@PathVariable Long id, HttpSession session)
-			throws InstanceNotFoundException {
+	public String addCartLine(@PathVariable Long id, HttpSession session) throws InstanceNotFoundException {
 
 		Product products;
 		products = productService.findProduct(id);
