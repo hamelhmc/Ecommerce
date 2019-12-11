@@ -8,10 +8,10 @@
 
 <%@ include file="layout/header.jsp"%>
 <spring:url value="/cart" var="cartDetails"></spring:url>
-	 <a href="${cartDetails}">Cart Details</a>
+<a href="${cartDetails}">Cart Details</a>
 <h2>Products search</h2>
 
-	
+
 
 <c:set var="pageCount" value="${Global.PAGE_SIZE }" />
 <spring:url value="/products/search/0/${pageCount}"
