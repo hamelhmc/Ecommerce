@@ -1,5 +1,7 @@
 package com.wirtz.ecommerce.controllers;
 
+import java.util.Set;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,7 @@ public class CartController {
 	private final static String SEARCH_RESULT_VIEW = "ProductsSearchResult";
 	private final static String DETAILS_RESULT_VIEW = "CartDetails";
 
-	private final static String PRODUCTS_ATT = "block";
+	private final static String CARTLINE = "cartline";
 
 	@Autowired
 	CartService cartlineService;
@@ -38,8 +40,9 @@ public class CartController {
 	public String getForm(HttpSession session, Model model) throws InstanceNotFoundException {
 		long userID = (long) session.getAttribute(Global.USER_PROFILE_ID);
 		UserProfile userProfile;
-
-		model.addAttribute(PRODUCTS_ATT, userService.findUser(userID).getCartline());
+		userProfile = userService.findUser(userID);
+	
+		model.addAttribute(CARTLINE, userProfile.getCartline());
 
 		return DETAILS_RESULT_VIEW;
 	}
