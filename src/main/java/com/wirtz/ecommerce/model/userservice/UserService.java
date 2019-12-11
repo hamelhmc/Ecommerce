@@ -1,5 +1,6 @@
 package com.wirtz.ecommerce.model.userservice;
 
+import com.wirtz.ecommerce.model.cartline.Cartline;
 import com.wirtz.ecommerce.model.product.Product;
 import com.wirtz.ecommerce.model.userprofile.UserProfile;
 import com.wirtz.ecommerce.modelutil.exceptions.DuplicateInstanceException;
@@ -23,5 +24,6 @@ public interface UserService {
 
 	public UserProfile findUser(Long userProfileId)throws InstanceNotFoundException;
 	
+	public void  updateUserProfile(UserProfile userProfile)throws InstanceNotFoundException;
 
 }

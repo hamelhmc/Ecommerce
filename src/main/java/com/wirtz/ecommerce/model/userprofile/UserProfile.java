@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -57,10 +58,10 @@ public class UserProfile {
 	@Version
 	private long version;
 
-	@OneToMany(mappedBy = "userProfile")
+	@OneToMany(mappedBy = "userProfile", fetch = FetchType.EAGER)
 	private final Set<Cartline> cartline = new HashSet<Cartline>();
 
-	@OneToMany(mappedBy = "userProfile")
+	@OneToMany(mappedBy = "userProfile", fetch = FetchType.EAGER)
 	private final Set<Order> orders = new HashSet<Order>();
 
 	public UserProfile() {

@@ -21,4 +21,18 @@ public class CartServiceImpl implements CartService {
 		cartlineDao.create(cartline);
 	}
 
+	@Transactional(readOnly = true)
+	public void removeCartline(long cartlineId) throws InstanceNotFoundException {
+		cartlineDao.remove(cartlineId);
+		
+	}
+
+	@Transactional(readOnly = true)
+	public void updateCartline(Cartline cartline) throws InstanceNotFoundException {
+		cartlineDao.update(cartline);
+		
+	}
+
+
+
 }

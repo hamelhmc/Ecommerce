@@ -98,11 +98,19 @@ public class UserServiceImpl implements UserService {
 
 
 
-	@Override
+	@Transactional(readOnly = true)
 	public UserProfile findUser(Long userProfileId) throws InstanceNotFoundException {
 		UserProfile userProfile;
 		userProfile = userProfileDao.find(userProfileId);
 		return userProfile;
+	}
+
+
+
+	@Transactional(readOnly = true)
+	public void updateUserProfile(UserProfile userProfile) throws InstanceNotFoundException {
+		userProfileDao.update(userProfile);
+		
 	}
 
 
